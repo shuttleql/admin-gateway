@@ -2,17 +2,17 @@ var koa = require('koa');
 var logger = require('koa-logger');
 var api = require('koa-router')();
 
-var user = require('./api/user');
-var session = require('./api/session');
-var game = require('./api/game');
+var admin = require('./api/admin');
+var player = require('./api/player');
+var shared = require('./api/shared');
 
 var app = koa();
 
 app.use(logger());
 
-api.use('/user', user.routes());
-api.use('/session', session.routes());
-api.use('/game', game.routes());
+api.use('/admin', admin.routes());
+api.use('/player', player.routes());
+api.use('/shared', shared.routes());
 
 app.use(api.routes());
 
