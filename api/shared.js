@@ -10,7 +10,7 @@ router
     }
   })
   .get('/game', function *(next) {
-    var games = yield fetch('http://localhost:8080', { method: 'GET' })
+    var games = yield fetch('http://localhost:8082', { method: 'GET' })
     .then(function(res) {
         return res.json();
     });
