@@ -10,10 +10,10 @@ router
 
     var resp = yield fetch('http://localhost:8080/users', {
       method: 'POST',
-      body: this.request.body
+      body: JSON.stringify(this.request.body)
     })
     .then(function(res) {
-        return res.json();
+      return res.json();
     });
 
     this.body = resp;
@@ -21,15 +21,15 @@ router
   .post('/session/create', function *(next) {
     var resp = yield fetch('http://localhost:8081/create', { method: 'POST' })
     .then(function(res) {
-        return res.json();
+      return res.statusText;
     });
 
-    this.body = {};
+    this.body = resp;
   })
   .put('/session/end', function *(next) {
     var resp = yield fetch('http://localhost:8081/end', { method: 'PUT' })
     .then(function(res) {
-        return res.json();
+        return res.statusText;
     });
 
     this.body = resp;
@@ -37,7 +37,7 @@ router
   .post('/session/checkin', function *(next) {
     var resp = yield fetch('http://localhost:8081/checkin', { method: 'POST' })
     .then(function(res) {
-        return res.json();
+        return res.statusText;
     });
 
     this.body = resp;
@@ -45,7 +45,7 @@ router
   .put('/session/checkout', function *(next) {
     var resp = yield fetch('http://localhost:8081/checkout', { method: 'PUT' })
     .then(function(res) {
-        return res.json();
+        return res.statusText;
     });
 
     this.body = resp;

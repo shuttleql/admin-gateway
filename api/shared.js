@@ -3,11 +3,20 @@ var bodyParser = require('koa-body')();
 var fetch = require('node-fetch');
 
 router
-  .get('/user/login', function *(next) {
-    console.log(this.params);
-    this.body = {
-      ayy: "matches"
-    }
+  .post('/auth', bodyParser, function *(next) {
+    var resp = yield fetch('http://localhost:8080/users/auth', {
+      method: 'POST',
+      body: JSON.stringify(this.request.body)
+    })
+    .then(function(res) {
+      if (res.ok) {
+        return res.json();
+      } else {
+        return res.statusText;
+      }
+    });
+
+    this.body = resp;
   })
   .get('/game', function *(next) {
     var games = yield fetch('http://localhost:8082', { method: 'GET' })
@@ -15,9 +24,7 @@ router
         return res.json();
     });
 
-    this.body = {
-      games: games
-    }
+    this.body = games
   });
 
 module.exports = router;

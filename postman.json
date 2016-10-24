@@ -1,0 +1,166 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ShuttleQL API Gateway",
+		"_postman_id": "73dcb7d8-c75c-f8b6-6edc-e3444bee4f16",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"description": "",
+			"item": [
+				{
+					"name": "http://localhost:3000/admin/user/register",
+					"request": {
+						"url": "http://localhost:3000/admin/user/register",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t  \"firstName\": \"Jason\",\n\t  \"lastName\": \"Fang\",\n\t  \"gender\": \"Male\",\n\t  \"email\": \"jason@fang.com\",\n\t  \"password\": \"ez\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/admin/session/status/start",
+					"request": {
+						"url": "http://localhost:3000/admin/session/status/start",
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/admin/session/status/stop",
+					"request": {
+						"url": "http://localhost:3000/admin/session/status/stop",
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/admin/session/create",
+					"request": {
+						"url": "http://localhost:3000/admin/session/create",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/admin/session/end",
+					"request": {
+						"url": "http://localhost:3000/admin/session/end",
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/admin/session/checkin",
+					"request": {
+						"url": "http://localhost:3000/admin/session/checkin",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/admin/session/checkout",
+					"request": {
+						"url": "http://localhost:3000/admin/session/checkout",
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Player",
+			"description": "",
+			"item": []
+		},
+		{
+			"name": "Shared",
+			"description": "",
+			"item": [
+				{
+					"name": "http://localhost:3000/shared/auth",
+					"request": {
+						"url": "http://localhost:3000/shared/auth",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"jason@fang.com\",\n\t\"password\" : \"ez\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/shared/game",
+					"request": {
+						"url": "http://localhost:3000/shared/game",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
