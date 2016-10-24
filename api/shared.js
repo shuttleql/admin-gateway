@@ -9,11 +9,13 @@ router
       body: JSON.stringify(this.request.body)
     })
     .then(function(res) {
+      var ret = { status: res.status }
       if (res.ok) {
-        return res.json();
+        ret.body = res.json();
       } else {
-        return res.statusText;
+        ret.body = res.statusText;
       }
+      return ret;
     });
 
     this.body = resp;
