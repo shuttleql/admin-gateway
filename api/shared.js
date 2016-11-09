@@ -27,6 +27,14 @@ router
     });
 
     this.body = games
+  })
+  .get('/users', function *(next) {
+    var users = yield fetch('http://localhost:8080/users', { method: 'GET' })
+      .then(function(res) {
+        return res.json();
+      });
+
+    this.body = users;
   });
 
 module.exports = router;
