@@ -5,7 +5,7 @@ function* jwtChecker(next) {
     var token = this.headers.token;
     var id = jwtUtil.decode(token);
     if (!id) {
-      this.throw('Invalid token', 400);
+      this.throw('Unauthorized Status', 401);
     }
   }
 
