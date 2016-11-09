@@ -2,8 +2,15 @@ var jwtUtil = require('./jwtUtil');
 
 function* jwtChecker(next) {
   if (this.path != "/shared/auth") {
-    var token = this.headers.token;
-    var id = jwtUtil.decode(token);
+    var token = this.headers.authorization;
+    if (!token) {
+      this.throw('Unauthorized Status', 401);
+    }
+    var split = token.split('Bearer ');
+    if (split.length != 2) {
+      this.throw('Unauthorized Status', 401);
+    }
+    var id = jwtUtil.decode(split[1]);
     if (!id) {
       this.throw('Unauthorized Status', 401);
     }

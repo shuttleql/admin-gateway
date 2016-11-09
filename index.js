@@ -17,7 +17,7 @@ app.use(cors({
     'Content-Type',
     'User-Agent',
     'X-Session-Token',
-    'token'
+    'Authorization'
   ]
 }));
 
