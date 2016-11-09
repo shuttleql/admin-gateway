@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "jsonwebtoken": "^7.1.9",
     "koa": "^1.2.4",
     "koa-body": "^1.6.0",
     "koa-cors": "0.0.16",
@@ -13,7 +14,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node index.js",
+    "start": "./start.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

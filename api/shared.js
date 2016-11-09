@@ -2,20 +2,24 @@ var router = require('koa-router')();
 var bodyParser = require('koa-body')();
 var fetch = require('node-fetch');
 
+var jwtUtil = require('../JWT/jwtUtil');
+
 router
   .post('/auth', bodyParser, function *(next) {
+    var that = this;
     var resp = yield fetch('http://localhost:8080/users/auth', {
       method: 'POST',
       body: JSON.stringify(this.request.body)
     })
     .then(function(res) {
-      var ret = { status: res.status }
       if (res.ok) {
-        ret.body = res.json();
+        return res.json();
       } else {
-        ret.body = res.statusText;
+        that.throw("invalid credential", 400);
       }
-      return ret;
+    }).then(function(json) {
+      json.token = jwtUtil.encode(json.id);
+      return json;
     });
 
     this.body = resp;
