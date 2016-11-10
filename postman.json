@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "ShuttleQL API Gateway",
-		"_postman_id": "6dfcbe6c-4969-3b05-2f63-140abd39a06f",
+		"_postman_id": "73dcb7d8-c75c-f8b6-6edc-e3444bee4f16",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -25,7 +25,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t  \"id\": 4,\n\t  \"firstName\": \"Jason3\",\n\t  \"lastName\": \"Fang\",\n\t  \"gender\": \"Male\",\n\t  \"email\": \"jason@fanggggggg.com\",\n\t  \"password\": \"ez\",\n\t  \"level\": 5\n}"
+							"raw": "{\n\t  \"firstName\": \"Jason\",\n\t  \"lastName\": \"Fang\",\n\t  \"gender\": \"Male\",\n\t  \"email\": \"jason@fang.com\",\n\t  \"password\": \"ez\"\n}"
 						},
 						"description": ""
 					},
@@ -114,6 +114,56 @@
 						"description": ""
 					},
 					"response": []
+				},
+				{
+					"name": "http://localhost:3000/admin/user/edit",
+					"request": {
+						"url": "http://localhost:3000/admin/user/8",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.OA.FbeprsZnCxP7hl-youWmZLgxDx30gUWLaR_PNqVmu8s",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t  \"firstName\": \"Jayson\",\n\t  \"lastName\": \"Fang\",\n\t  \"gender\": \"Male\",\n\t  \"email\": \"jason@fang.com\",\n\t  \"password\": \"ez\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/admin/user/delete",
+					"request": {
+						"url": "http://localhost:3000/admin/user/8",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.OA.FbeprsZnCxP7hl-youWmZLgxDx30gUWLaR_PNqVmu8s",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
 				}
 			]
 		},
@@ -140,7 +190,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\" : \"jason@fang.com\",\n\t\"password\" : \"ez\"\n}"
+							"raw": "{\n\t\"email\" : \"jason@fang.com\",\n\t\"password\" : \"ezz\"\n}"
 						},
 						"description": ""
 					},
@@ -150,20 +200,6 @@
 					"name": "http://localhost:3000/shared/game",
 					"request": {
 						"url": "http://localhost:3000/shared/game",
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "http://localhost:3000/shared/users",
-					"request": {
-						"url": "http://localhost:3000/shared/users",
 						"method": "GET",
 						"header": [],
 						"body": {
