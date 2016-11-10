@@ -1,3 +1,5 @@
+var JWT_SECRET = require('../secrets').JWT_SECRET;
+
 var jwtUtil = require('./jwtUtil');
 
 function* jwtChecker(next) {
@@ -10,7 +12,7 @@ function* jwtChecker(next) {
     if (split.length != 2) {
       this.throw('Unauthorized Status', 401);
     }
-    var id = jwtUtil.decode(split[1]);
+    var id = jwtUtil.decode(split[1], JWT_SECRET);
     if (!id) {
       this.throw('Unauthorized Status', 401);
     }
