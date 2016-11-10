@@ -24,14 +24,18 @@ router
       body: JSON.stringify(this.request.body)
     })
     .then(function(res) {
-      return res.json();
+      if (res.ok) {
+        return res.json();
+      } else {
+        that.throw(res.statusText, res.status);
+      }
     });
 
     this.body = resp;
   })
   .delete('/user/:id', function *(next) {
     var userUrl = 'http://localhost:8080/users/' + this.params.id;
-    
+
     var resp = yield fetch(userUrl, {
       method: 'DELETE'
     })
