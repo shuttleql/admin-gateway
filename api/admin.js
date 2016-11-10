@@ -50,10 +50,13 @@ router
 
     this.body = resp;
   })
-  .put('/session/status/:status', function *(next) {
+  .put('/session/status/:status', bodyParser, function *(next) {
     var sessionUrl = 'http://localhost:8082/status/' + this.params.status;
 
-    var resp = yield fetch(sessionUrl, { method: 'PUT' })
+    var resp = yield fetch(sessionUrl, {
+      method: 'PUT',
+      body: JSON.stringify(this.request.body)
+    })
     .then(function(res) {
         return res.json();
     });
