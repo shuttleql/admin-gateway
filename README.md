@@ -1,4 +1,4 @@
-# Admin Gateway #
+# API Gateway #
 
 ## Build & Run ##
 
