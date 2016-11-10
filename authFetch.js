@@ -19,12 +19,11 @@ function addAuthToken(data) {
   var uniqueValue = getKey();
   data.headers[key] = uniqueValue;
   data.headers[token] = 'HMAC ' + jwtUtil.encode(uniqueValue, HMAC_SECRET);
-  console.log(data);
   return data;
 }
 
 function getKey() {
-  return 'ABC';
+  return Date.now().toString();
 }
 
 module.exports = authFetch;
