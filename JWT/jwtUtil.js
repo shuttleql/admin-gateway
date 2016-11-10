@@ -1,13 +1,12 @@
 var jwt = require('jsonwebtoken');
 
-var secret = process.env.JWT_SECRET;
 var algorithm = 'HS256';
 
-function encode(id) {
+function encode(id, secret) {
   return jwt.sign(id, secret, { 'algorithm': algorithm});
 }
 
-function decode(code) {
+function decode(code, secret) {
   try {
     var id = jwt.verify(code, secret, { 'algorithms': [algorithm] });
     if (id == parseInt(id, 10)) {
