@@ -16,6 +16,7 @@ function* jwtChecker(next) {
     if (!id) {
       this.throw('Unauthorized Status', 401);
     }
+    this.session = {id: id};
   }
 
   yield next;
