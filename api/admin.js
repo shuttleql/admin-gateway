@@ -27,7 +27,7 @@ router
     var users = [];
     for(var i = 0; i < userResp.length; i++) {
       var user = userResp[i];
-      user["checkedin"] = user.id in map;
+      user["checkedIn"] = user.id in map;
       users.push(user);
     }
 
