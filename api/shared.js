@@ -33,14 +33,6 @@ router
 
     this.body = games
   })
-  .get('/users', function *(next) {
-    var users = yield authFetch('http://localhost:8080/users', { method: 'GET' })
-      .then(function(res) {
-        return res.json();
-      });
-
-    this.body = users;
-  })
   .get('/users/info', function *(next) {
     var user = yield authFetch('http://localhost:8080/users/' + this.session.id, {method: 'GET'})
       .then(function(res) {
