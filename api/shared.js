@@ -40,6 +40,18 @@ router
       });
 
       this.body = user;
+  })
+  .get('/session/current', function *(next) {
+    var resp = yield authFetch('http://localhost:8081/current', { method: 'GET' })
+    .then(function(res) {
+      if (res.ok) {
+        return res.json();
+      } else {
+        return {};
+      }
+    });
+
+    this.body = resp;
   });
 
 module.exports = router;

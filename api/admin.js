@@ -79,18 +79,6 @@ router
 
     this.body = resp;
   })
-  .get('/session/current', function *(next) {
-    var resp = yield authFetch('http://localhost:8081/current', { method: 'GET' })
-    .then(function(res) {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return {};
-      }
-    });
-
-    this.body = resp;
-  })
   .post('/session/create', function *(next) {
     var that = this;
     var resp = yield authFetch('http://localhost:8081/create', { method: 'POST' })
