@@ -1,8 +1,8 @@
 {
 	"variables": [],
 	"info": {
-		"name": "ShuttleQL API Gateway",
-		"_postman_id": "73dcb7d8-c75c-f8b6-6edc-e3444bee4f16",
+		"name": "ShuttleQL API Gateway V2",
+		"_postman_id": "0844657b-3f20-fbab-f6d7-1f9e0dcd04c9",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -21,22 +21,33 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.MQ.-vJ1Gp9Mwn-EfVlWaGtGsouwaDGElPuDQ3kIHp0Kxaw",
+								"description": ""
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t  \"firstName\": \"Jason\",\n\t  \"lastName\": \"Fang\",\n\t  \"gender\": \"Male\",\n\t  \"email\": \"jason@fang.com\",\n\t  \"password\": \"ez\"\n}"
+							"raw": "{\n    \"firstName\": \"Jason\",\n    \"lastName\": \"Fang\",\n    \"gender\": \"Male\",\n    \"email\": \"jason@fang.com\",\n    \"password\": \"ez\"\n}"
 						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "http://localhost:3000/admin/session/status/start",
+					"name": "http://localhost:3000/admin/users",
 					"request": {
-						"url": "http://localhost:3000/admin/session/status/start",
-						"method": "PUT",
-						"header": [],
+						"url": "http://localhost:3000/admin/users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.MQ.-vJ1Gp9Mwn-EfVlWaGtGsouwaDGElPuDQ3kIHp0Kxaw",
+								"description": ""
+							}
+						],
 						"body": {
 							"mode": "formdata",
 							"formdata": []
@@ -46,11 +57,62 @@
 					"response": []
 				},
 				{
-					"name": "http://localhost:3000/admin/session/status/stop",
+					"name": "http://localhost:3000/admin/user/2",
 					"request": {
-						"url": "http://localhost:3000/admin/session/status/stop",
+						"url": "http://localhost:3000/admin/user/2",
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.MQ.-vJ1Gp9Mwn-EfVlWaGtGsouwaDGElPuDQ3kIHp0Kxaw",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Jason\",\n    \"lastName\": \"Fang\",\n    \"gender\": \"Male\",\n    \"email\": \"jason@fang.com\",\n    \"password\": \"ez\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/admin/user/2",
+					"request": {
+						"url": "http://localhost:3000/admin/user/2",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.MQ.-vJ1Gp9Mwn-EfVlWaGtGsouwaDGElPuDQ3kIHp0Kxaw",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/admin/session/current",
+					"request": {
+						"url": "http://localhost:3000/admin/session/current",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.MQ.-vJ1Gp9Mwn-EfVlWaGtGsouwaDGElPuDQ3kIHp0Kxaw",
+								"description": ""
+							}
+						],
 						"body": {
 							"mode": "formdata",
 							"formdata": []
@@ -64,7 +126,13 @@
 					"request": {
 						"url": "http://localhost:3000/admin/session/create",
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.MQ.-vJ1Gp9Mwn-EfVlWaGtGsouwaDGElPuDQ3kIHp0Kxaw",
+								"description": ""
+							}
+						],
 						"body": {
 							"mode": "formdata",
 							"formdata": []
@@ -78,7 +146,13 @@
 					"request": {
 						"url": "http://localhost:3000/admin/session/end",
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.MQ.-vJ1Gp9Mwn-EfVlWaGtGsouwaDGElPuDQ3kIHp0Kxaw",
+								"description": ""
+							}
+						],
 						"body": {
 							"mode": "formdata",
 							"formdata": []
@@ -92,10 +166,21 @@
 					"request": {
 						"url": "http://localhost:3000/admin/session/checkin",
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.MQ.-vJ1Gp9Mwn-EfVlWaGtGsouwaDGElPuDQ3kIHp0Kxaw",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
 						"body": {
-							"mode": "formdata",
-							"formdata": []
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1\n}"
 						},
 						"description": ""
 					},
@@ -106,7 +191,38 @@
 					"request": {
 						"url": "http://localhost:3000/admin/session/checkout",
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.MQ.-vJ1Gp9Mwn-EfVlWaGtGsouwaDGElPuDQ3kIHp0Kxaw",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/admin/session/status/start",
+					"request": {
+						"url": "http://localhost:3000/admin/session/status/start",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.MQ.-vJ1Gp9Mwn-EfVlWaGtGsouwaDGElPuDQ3kIHp0Kxaw",
+								"description": ""
+							}
+						],
 						"body": {
 							"mode": "formdata",
 							"formdata": []
@@ -116,50 +232,20 @@
 					"response": []
 				},
 				{
-					"name": "http://localhost:3000/admin/user/edit",
+					"name": "http://localhost:3000/admin/session/status/stop",
 					"request": {
-						"url": "http://localhost:3000/admin/user/8",
+						"url": "http://localhost:3000/admin/session/status/stop",
 						"method": "PUT",
 						"header": [
 							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.OA.FbeprsZnCxP7hl-youWmZLgxDx30gUWLaR_PNqVmu8s",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.MQ.-vJ1Gp9Mwn-EfVlWaGtGsouwaDGElPuDQ3kIHp0Kxaw",
 								"description": ""
 							}
 						],
 						"body": {
-							"mode": "raw",
-							"raw": "{\n\t  \"firstName\": \"Jayson\",\n\t  \"lastName\": \"Fang\",\n\t  \"gender\": \"Male\",\n\t  \"email\": \"jason@fang.com\",\n\t  \"password\": \"ez\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "http://localhost:3000/admin/user/delete",
-					"request": {
-						"url": "http://localhost:3000/admin/user/8",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.OA.FbeprsZnCxP7hl-youWmZLgxDx30gUWLaR_PNqVmu8s",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
+							"mode": "formdata",
+							"formdata": []
 						},
 						"description": ""
 					},
@@ -177,11 +263,41 @@
 			"description": "",
 			"item": [
 				{
+					"name": "http://localhost:3000/shared/users/info",
+					"request": {
+						"url": "http://localhost:3000/shared/users/info",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.MQ.-vJ1Gp9Mwn-EfVlWaGtGsouwaDGElPuDQ3kIHp0Kxaw",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\" : \"david.dong@gmail.com\",\n  \"password\" : \"12345678\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
 					"name": "http://localhost:3000/shared/auth",
 					"request": {
 						"url": "http://localhost:3000/shared/auth",
 						"method": "POST",
 						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.MQ.-vJ1Gp9Mwn-EfVlWaGtGsouwaDGElPuDQ3kIHp0Kxaw",
+								"description": ""
+							},
 							{
 								"key": "Content-Type",
 								"value": "application/json",
@@ -190,7 +306,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\" : \"jason@fang.com\",\n\t\"password\" : \"ezz\"\n}"
+							"raw": "{\n    \"email\": \"david.dong@gmail.com\",\n    \"password\": \"12345678\"\n}"
 						},
 						"description": ""
 					},
@@ -201,7 +317,13 @@
 					"request": {
 						"url": "http://localhost:3000/shared/game",
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.MQ.-vJ1Gp9Mwn-EfVlWaGtGsouwaDGElPuDQ3kIHp0Kxaw",
+								"description": ""
+							}
+						],
 						"body": {
 							"mode": "formdata",
 							"formdata": []
