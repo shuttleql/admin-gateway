@@ -205,6 +205,17 @@ router
     });
 
     this.body = resp;
+  })
+  .put('/game/override', bodyParser, function *(next) {
+    var resp = yield authFetch('http://localhost:8082/override', {
+      method: 'PUT',
+      body: JSON.stringify(this.request.body)
+    })
+    .then(function(res) {
+        return res.json();
+    });
+
+    this.body = resp;
   });
 
 module.exports = router;
