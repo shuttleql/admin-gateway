@@ -39,7 +39,7 @@ router
         return res.json();
       });
 
-      this.body = user;
+    this.body = user;
   })
   .get('/session/current', function *(next) {
     var resp = yield authFetch('http://localhost:8081/current', { method: 'GET' })
@@ -52,6 +52,17 @@ router
     });
 
     this.body = resp;
+  })
+  .get('/announcements/:offset/:size', function *(next) {
+    var announcementUrl = 'http://localhost:8083/announcements' + '/' + this.params.offset
+        + '/' + this.params.size;
+
+    var announcements = yield authFetch(announcementUrl, {method: 'GET'})
+      .then(function(res) {
+        return res.json();
+      });
+
+    this.body = announcements;
   });
 
 module.exports = router;

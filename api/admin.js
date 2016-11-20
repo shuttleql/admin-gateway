@@ -108,7 +108,7 @@ router
   .post('/session/checkin', bodyParser, function *(next) {
     var that = this;
     // Session service request
-    var sessionResp = yield authFetch('http://localhost:8081/checkin', { 
+    var sessionResp = yield authFetch('http://localhost:8081/checkin', {
       method: 'POST',
       body: JSON.stringify(this.request.body)
     })
@@ -139,7 +139,7 @@ router
 
     // Game service request
     var gameUrl = 'http://localhost:8082/checkedinplayers';
-    var gameResp = yield authFetch(gameUrl, { 
+    var gameResp = yield authFetch(gameUrl, {
       method: 'POST',
       body: JSON.stringify(playerJson)
     })
@@ -156,9 +156,9 @@ router
   .put('/session/checkout', bodyParser, function *(next) {
     var that = this;
     // Session service request
-    var sessionResp = yield authFetch('http://localhost:8081/checkout', { 
+    var sessionResp = yield authFetch('http://localhost:8081/checkout', {
       method: 'PUT',
-      body: JSON.stringify(this.request.body) 
+      body: JSON.stringify(this.request.body)
     })
     .then(function(res) {
       if (res.ok) {
@@ -190,7 +190,18 @@ router
       body: JSON.stringify(this.request.body)
     })
     .then(function(res) {
-        return res.json();
+      return res.json();
+    });
+
+    this.body = resp;
+  })
+  .post('/announcements', bodyParser, function *(next) {
+    var resp = yield authFetch('http://localhost:8083/announcements', {
+      method: 'POST',
+      body: JSON.stringify(this.request.body)
+    })
+    .then(function(res) {
+      return res.json();
     });
 
     this.body = resp;
