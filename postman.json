@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "ShuttleQL API Gateway V2",
-		"_postman_id": "94dd78b0-2494-50cc-89b8-934aabafc7b7",
+		"_postman_id": "6ebfb356-40bb-a029-51f8-4fa5d5f80a7c",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -235,6 +235,31 @@
 						"description": ""
 					},
 					"response": []
+				},
+				{
+					"name": "http://localhost:3000/admin/announcements",
+					"request": {
+						"url": "http://localhost:3000/admin/announcements",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.MQ.-vJ1Gp9Mwn-EfVlWaGtGsouwaDGElPuDQ3kIHp0Kxaw",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"message\": \"This is an admin message.\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
 				}
 			]
 		},
@@ -321,6 +346,26 @@
 					"name": "http://localhost:3000/shared/game",
 					"request": {
 						"url": "http://localhost:3000/shared/game",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.MQ.-vJ1Gp9Mwn-EfVlWaGtGsouwaDGElPuDQ3kIHp0Kxaw",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/shared/announcements/0/2",
+					"request": {
+						"url": "http://localhost:3000/shared/announcements/0/2",
 						"method": "GET",
 						"header": [
 							{
